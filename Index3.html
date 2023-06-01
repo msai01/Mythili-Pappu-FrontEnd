@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sending Amount Calculation</title>
+  <script>
+    var environments = "Stage"; // Change the environment value here
+
+    var baseAmount = 100; // Base sending amount
+    var sendingAmount = "Prod"; 
+
+    switch (environments) {
+      case "Dev":
+        sendingAmount = baseAmount + (baseAmount * 0.1); // Increment by 10%
+        break;
+      case "Test":
+        sendingAmount = baseAmount + (baseAmount * 0.2); // Increment by 20%
+        break;
+      case "Stage":
+        sendingAmount = baseAmount + (baseAmount * 0.3); // Increment by 30%
+        break;
+      case "Prod":
+        sendingAmount = baseAmount + (baseAmount * 0.05); // Increment by 5%
+        break;
+      default:
+        sendingAmount = baseAmount; // Default sending amount
+    }
+
+    // Display the sending amount in the console
+    console.log("Sending Amount: $" + sendingAmount.toFixed(2));
+  </script>
+</head>
+
+  <body>
+  <h1>Sending Amount: $<span id="sendingAmount"></span></h1> 
+
+  <script>
+    // Update the sending amount in the HTML
+    document.getElementById("sendingAmount").textContent = sendingAmount.toFixed(2);
+  </script>
+</body>
+</html>
