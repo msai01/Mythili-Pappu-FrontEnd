@@ -1,25 +1,32 @@
-<html>
-    <head>
-        <script>
-            let Hobbies=["playing cricket", "watching movies","playing video games","hiking"]
-            function hobbyreturn(){
-                return Hobbies;
-            }
-            console.log(hobbyreturn());
+// Initialize an array to store the hobbies
+let hobbies = ['reading', 'painting', 'playing guitar'];
 
-            function addHobby(newElement){
-                Hobbies.push(newElement);
-                return Hobbies;
-            }
-            console.log(addHobby("singing"));
+// Function to display all hobbies
+function displayHobbies() {
+  console.log(hobbies);
+}
 
-            function delHobby(delElement){
-                let index=Hobbies.indexOf(delElement);
-                Hobbies.splice(index, 1);
-                return Hobbies;
-            }
-            console.log(delHobby("watching movies")); 
-            
-        </script>
-    </head>
-</html>
+// Function to add a new hobby to the list
+function addHobby(newHobby) {
+  hobbies.push(newHobby);
+  console.log('New hobby added:', newHobby);
+}
+
+// Function to delete a specific hobby from the list
+function deleteHobby(hobbyToDelete) {
+  const index = hobbies.indexOf(hobbyToDelete);
+  if (index > -1) {
+    hobbies.splice(index, 1);
+    console.log('Hobby deleted:', hobbyToDelete);
+  } else {
+    console.log('Hobby not found:', hobbyToDelete);
+  }
+}
+
+// Testing the functions
+displayHobbies(); // Output: ['reading', 'painting', 'playing guitar']
+addHobby('gardening'); // Output: New hobby added: gardening
+displayHobbies(); // Output: ['reading', 'painting', 'playing guitar', 'gardening']
+deleteHobby('painting'); // Output: Hobby deleted: painting
+displayHobbies(); // Output: ['reading', 'playing guitar', 'gardening']
+deleteHobby('swimming'); // Output: Hobby not found: swimming
